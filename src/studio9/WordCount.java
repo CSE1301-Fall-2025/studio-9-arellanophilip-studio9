@@ -28,10 +28,24 @@ public class WordCount {
 	 * @return a map which contains all of the distinct words as keys, each
 	 *         associated with the number of occurrences of the word
 	 */
-	public static Map<String, Integer> countWords(List<String> words) {
+	private List<String> words;
 
-		// FIXME
-		throw new NotYetImplementedException();
+	public WordCount(List<String> words) {
+		this.words = words;
+	}
+
+	public static Map<String, Integer> countWords(List<String> words) {
+		Map<String, Integer> a = new HashMap<>();
+		for (int i = 0; i < words.size(); i++){
+			int count = 0;
+			for (int j = 0; j < words.size(); j++){
+				if (words.get(i).equals(words.get(j))){
+					count++;
+				}
+			}
+			a.put(words.get(i), count);
+		}
+		return a;
 
 	}
 	
